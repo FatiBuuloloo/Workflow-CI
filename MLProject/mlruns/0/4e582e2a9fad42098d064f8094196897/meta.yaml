@@ -1,0 +1,14 @@
+artifact_uri: file:///home/runner/work/Workflow-CI/Workflow-CI/MLProject/mlruns/0/4e582e2a9fad42098d064f8094196897/artifacts
+end_time: 1779908416356
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4e582e2a9fad42098d064f8094196897
+run_name: salty-sheep-824
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1779908405044
+status: 3
+tags: []
+user_id: runner

@@ -1,0 +1,12 @@
+digest: 6bcef76c
+name: dataset
+profile: '{"num_rows": 4500, "num_elements": 31500}'
+schema: '{"mlflow_colspec": [{"type": "long", "name": "Gender", "required": true},
+  {"type": "double", "name": "Age", "required": true}, {"type": "double", "name":
+  "Height", "required": true}, {"type": "double", "name": "Weight", "required": true},
+  {"type": "double", "name": "Duration", "required": true}, {"type": "double", "name":
+  "Heart_Rate", "required": true}, {"type": "double", "name": "Body_Temp", "required":
+  true}]}'
+source: '{"tags": {"mlflow.user": "runner", "mlflow.source.name": "modelling.py",
+  "mlflow.source.type": "LOCAL", "mlflow.source.git.commit": "06ebaba3998fe1204ea6f717759bf158b2efc299"}}'
+source_type: code
