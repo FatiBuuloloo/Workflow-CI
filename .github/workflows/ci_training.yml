@@ -45,6 +45,7 @@ jobs:
       env:
         MLFLOW_TRACKING_URI: file://${{ github.workspace }}/MLProject/mlruns
       run: |
-        LATEST_RUN=$(ls -t MLProject/mlruns/0/ | grep -v 'meta.yaml' | head -n 1)
+        LATEST_RUN=$(ls -t MLProject/mlruns/0/ | grep -E '^[0-9a-f]{32}$' | head -n 1)
+        echo "Menggunakan Run ID Terakhir: $LATEST_RUN"
         mlflow models build-docker -m "runs:/$LATEST_RUN/model" -n "${{ secrets.DOCKER_HUB_USERNAME }}/mlflow-model:latest"
         docker push ${{ secrets.DOCKER_HUB_USERNAME }}/mlflow-model:latest
