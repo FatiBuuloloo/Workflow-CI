@@ -1,0 +1,33 @@
+artifact_path: /home/runner/work/Workflow-CI/Workflow-CI/MLProject/mlruns/0/models/m-afd792a52bd646bc96e79ba12be17b6d/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.10.20
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+    skops_trusted_types: null
+is_signature_from_type_hint: false
+mlflow_version: 3.12.0
+model_id: m-afd792a52bd646bc96e79ba12be17b6d
+model_size_bytes: 75355422
+model_uuid: m-afd792a52bd646bc96e79ba12be17b6d
+prompts: null
+run_id: 67722c6a8d4c4e5ab75d52f38b5049fc
+signature:
+  inputs: '[{"type": "long", "name": "Gender", "required": true}, {"type": "double",
+    "name": "Age", "required": true}, {"type": "double", "name": "Height", "required":
+    true}, {"type": "double", "name": "Weight", "required": true}, {"type": "double",
+    "name": "Duration", "required": true}, {"type": "double", "name": "Heart_Rate",
+    "required": true}, {"type": "double", "name": "Body_Temp", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-05-27 08:59:23.587752'
