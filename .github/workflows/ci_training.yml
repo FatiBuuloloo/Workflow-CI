@@ -42,10 +42,8 @@ jobs:
         password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
     - name: Build and Push Docker Image using MLflow
-      env:
-        MLFLOW_TRACKING_URI: file://${{ github.workspace }}/MLProject/mlruns
       run: |
         LATEST_RUN=$(ls -t MLProject/mlruns/0/ | grep -E '^[0-9a-f]{32}$' | head -n 1)
         echo "Menggunakan Run ID Terakhir: $LATEST_RUN"
-        mlflow models build-docker -m "runs:/$LATEST_RUN/model" -n "${{ secrets.DOCKER_HUB_USERNAME }}/mlflow-model:latest"
+        mlflow models build-docker -m "MLProject/mlruns/0/$LATEST_RUN/artifacts/model" -n "${{ secrets.DOCKER_HUB_USERNAME }}/mlflow-model:latest"
         docker push ${{ secrets.DOCKER_HUB_USERNAME }}/mlflow-model:latest
