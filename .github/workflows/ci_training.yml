@@ -28,6 +28,7 @@ jobs:
 
     - name: Run MLflow Project (Re-training Model)
       run: |
+        rm -rf MLProject/mlruns
         cd MLProject
         mlflow run . --env-manager=local
 
