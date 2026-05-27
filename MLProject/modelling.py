@@ -21,7 +21,7 @@ y = data["Calories"]
 train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.3, shuffle=True, random_state=42)
 model = RandomForestRegressor(n_estimators=100, random_state=42)
 model.fit(train_X, train_y)
-
+mlflow.sklearn.log_model(model, "model")
 y_pred = model.predict(test_X)
 
 mse = mean_squared_error(test_y, y_pred)
