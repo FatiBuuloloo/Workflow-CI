@@ -43,6 +43,6 @@ jobs:
 
     - name: Build and Push Docker Image using MLflow
       run: |
-        LATEST_RUN=$(ls -t MLProject/mlruns/1/ | grep -v 'meta.yaml' | head -n 1)
-        mlflow models build-docker -m "MLProject/mlruns/1/$LATEST_RUN/artifacts/model" -n "${{ secrets.DOCKER_HUB_USERNAME }}/mlflow-model:latest"
+        LATEST_RUN=$(ls -t MLProject/mlruns/0/ | grep -v 'meta.yaml' | head -n 1)
+        mlflow models build-docker -m "MLProject/mlruns/0/$LATEST_RUN/artifacts/model" -n "${{ secrets.DOCKER_HUB_USERNAME }}/mlflow-model:latest"
         docker push ${{ secrets.DOCKER_HUB_USERNAME }}/mlflow-model:latest
