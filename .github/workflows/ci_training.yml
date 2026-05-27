@@ -9,6 +9,8 @@ on:
 jobs:
   train-and-build:
     runs-on: ubuntu-latest
+    env:
+      MLFLOW_TRACKING_URI: file://${{ github.workspace }}/MLProject/mlruns
 
     steps:
     - name: Checkout Repository
@@ -26,7 +28,8 @@ jobs:
 
     - name: Run MLflow Project (Re-training Model)
       run: |
-        cd MLProject && mlflow run . --env-manager local
+        cd MLProject
+        mlflow run . --env-manager=local
 
     - name: Commit and Push Model Artifacts
       run: |
@@ -45,7 +48,7 @@ jobs:
       run: |
         LATEST_RUN=$(ls -t MLProject/mlruns/0/ | grep -E '^[0-9a-f]{32}$' | head -n 1)
         echo "Menggunakan Run ID Terakhir: $LATEST_RUN"
-        MLFLOW_TRACKING_URI="file://${{ github.workspace }}/MLProject/mlruns" mlflow models build-docker \
+        mlflow models build-docker \
           -m "runs:/$LATEST_RUN/model" \
           -n "${{ secrets.DOCKER_HUB_USERNAME }}/mlflow-model:latest" \
           --env-manager=local
